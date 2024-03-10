@@ -181,7 +181,6 @@ public class CalculatorExercise extends AppCompatActivity {
 
                                 /* ADD the "=" into the TEXTVIEW showing the whole equation */
                                 String finalEquation = equation.toString() + "=";
-                                tv_equation.setText(finalEquation);
 
                                 /* GET MDAS result */
                                 String result = calculateMDAS();
@@ -190,6 +189,7 @@ public class CalculatorExercise extends AppCompatActivity {
                                 clearCalculator();
 
                                 /* SHOW RESULT */
+                                tv_equation.setText(finalEquation);
                                 tv_result.setText(result);
                                 break;
                         }
