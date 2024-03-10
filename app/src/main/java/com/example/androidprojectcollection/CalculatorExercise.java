@@ -104,11 +104,11 @@ public class CalculatorExercise extends AppCompatActivity {
 
                     if (ope == '.'){
                         if (number.indexOf(op.getText().toString()) == -1){
-                            /* ADDS a PERIOD IF the number does not contain any period (.) */
+                            /* ADDS a DECIMAL point IF the number does not contain any decimal point (.) */
                             number.append(ope);
                             tv_equation.append(op.getText().toString());
                         } else if (number.charAt(number.length()-1) == '.'){
-                            /* REMOVES a PERIOD if the last added is a PERIOD */
+                            /* REMOVES the DECIMAL POINT if it was the last input */
                             number.setLength(number.length()-1);
                             tv_equation.setText(equation.toString());
                             tv_equation.append(number.toString());
@@ -123,33 +123,49 @@ public class CalculatorExercise extends AppCompatActivity {
                             case '÷':
                             case '×':
                                 if (number.length() == 0){
+                                    /* IF the last INPUT was an OPERATOR
+                                    /* REMOVE last inputted operator */
                                     listEquation.remove(listEquation.size()-1);
                                     equation.setCharAt(equation.length()-1, ope);
                                 } else {
+                                    /* IF the last INPUT was an OPERAND */
                                     if (number.charAt(number.length()-1) == '.') {
+                                        /* IF the last INPUT was a decimal poibt, REMOVE the decimal point */
                                         number.setLength(number.length()-1);
                                     }
 
+                                    /* ADD the INPUTTED number into the EQUATION */
                                     listEquation.add(number.toString());
+
                                     equation.append(number.toString());
                                     equation.append(ope);
+
+                                    /* CLEAR the temporary variable that holds the inputted NUMBER */
                                     number.setLength(0);
+
+                                    /* GET sequential result */
+                                    tv_result.setText(calculateSequential());
                                 }
 
+                                /* ADD operator into the EQUATION */
                                 listEquation.add(String.valueOf(ope));
                                 tv_equation.setText(equation);
-                                tv_result.setText(calculateSequential());
                                 break;
                             case '=':
+                                /* IF the last input was a NUMBER */
                                 if (number.length() != 0){
+                                    /* if LAST input was a DECIMAL point, remove it */
                                     if (number.charAt(number.length()-1) == '.'){
                                         number.setLength(number.length()-1);
                                     }
 
+                                    /* ADD number into the EQUATION */
                                     listEquation.add(number.toString());
                                     equation.append(number.toString());
                                 }
 
+                                /* IF the last input was an OPERATOR
+                                /* REMOVE the operator */
                                 if (!Character.isDigit(equation.charAt(equation.length()-1))){
                                     equation.setLength(equation.length()-1);
                                     listEquation.remove(listEquation.size()-1);
@@ -163,10 +179,17 @@ public class CalculatorExercise extends AppCompatActivity {
 //                                }
 //                                System.out.println("list size: " + listEquation.size());
 
+                                /* ADD the "=" into the TEXTVIEW showing the whole equation */
                                 String finalEquation = equation.toString() + "=";
-                                String result = calculateMDAS();
-                                clearCalculator();
                                 tv_equation.setText(finalEquation);
+
+                                /* GET MDAS result */
+                                String result = calculateMDAS();
+
+                                /* CLEAR calculator */
+                                clearCalculator();
+
+                                /* SHOW RESULT */
                                 tv_result.setText(result);
                                 break;
                         }
@@ -177,7 +200,7 @@ public class CalculatorExercise extends AppCompatActivity {
     }
 
     private String calculateSequential(){
-        if (listEquation.size() == 2 && number.length() == 0){
+        if (listEquation.size() == 1 && number.length() == 0){
             SequentialResult = listEquation.get(0);
             return SequentialResult;
         }
@@ -186,8 +209,8 @@ public class CalculatorExercise extends AppCompatActivity {
         BigDecimal right;
         char op;
         if (number.length() == 0){
-            right = new BigDecimal(listEquation.get(listEquation.size()-2));
-            opIndexFrLast = 3;
+            right = new BigDecimal(listEquation.get(listEquation.size()-1));
+            opIndexFrLast = 2;
         } else {
             right = new BigDecimal(number.toString());
             opIndexFrLast = 1;
@@ -213,7 +236,7 @@ public class CalculatorExercise extends AppCompatActivity {
                     try {
                         tempRes = left.divide(right);
                     } catch (ArithmeticException a){
-                        if (opIndexFrLast == 3){
+                        if (opIndexFrLast == 2){
                             SequentialResult = "ERROR";
                         }
 
@@ -223,7 +246,7 @@ public class CalculatorExercise extends AppCompatActivity {
                     break;
             }
 
-            if (opIndexFrLast == 3){
+            if (opIndexFrLast == 2){
                 SequentialResult = tempRes.toString();
             }
 
@@ -233,28 +256,33 @@ public class CalculatorExercise extends AppCompatActivity {
         return "ERROR";
     }
     private String calculateMDAS(){
-        System.out.print("INFIX: ");
-        for (String s: listEquation){
-            System.out.print(s + " ");
-        }
+        /* FOR CHECKING ONLY */
+//        System.out.print("INFIX: ");
+//        for (String s: listEquation){
+//            System.out.print(s + " ");
+//        }
 
+        /* CONVERT the INFIX expression into POSTFIX */
         getPostfixExpression();
 
+        /* FOR CHECKING ONLY */
         System.out.print("\nPOSTFIX: ");
         for (String s: listEquation){
             System.out.print(s + " ");
         }
 
+        /* STACK for calculating POSTFIX */
         Stack<String> calculations = new Stack<>();
 
+        /* GOING THROUGH EVERY OPERAND/OPERATORS in the EXPRESSION */
         for (String s: listEquation){
-            BigDecimal left;
-            BigDecimal right;
+            /* IF current STRING is an OPERAND, PUSH into the STACK
+            /* ELSE, POP 2 times to get the OPERANDS in the STACK & PERFORM operation */
             if (s.contains(".") || Character.isDigit(s.charAt(0))) {
                 calculations.push(s);
             } else {
-                right = new BigDecimal(calculations.pop());
-                left = new BigDecimal(calculations.pop());
+                BigDecimal right = new BigDecimal(calculations.pop());
+                BigDecimal left = new BigDecimal(calculations.pop());
 
                 switch (s.charAt(0)){
                     case '+':
@@ -315,6 +343,8 @@ public class CalculatorExercise extends AppCompatActivity {
             }
         }
 
+
+        /* EMPTY the ops stack -> ADD operators into the POSTFIX expression */
         while (!ops.empty()){
             pf.add(ops.pop());
         }
