@@ -13,36 +13,18 @@ import java.util.List;
 import java.util.Stack;
 
 public class CalculatorExercise extends AppCompatActivity {
-    StringBuilder number;
-    StringBuilder equation;
+    StringBuilder number, equation;
     List<String> listEquation;
     String SequentialResult;
 
     // Buttons
-    List<Button> buttonNumbers;
-    List<Button> buttonOperations;
+    List<Button> buttonNumbers, buttonOperations;
     Button btnClear;
-    Button btnNumber9;
-    Button btnNumber8;
-    Button btnNumber7;
-    Button btnNumber6;
-    Button btnNumber5;
-    Button btnNumber4;
-    Button btnNumber3;
-    Button btnNumber2;
-    Button btnNumber1;
-    Button btnNumber0;
-
-    Button btnOpDiv;
-    Button btnOpMul;
-    Button btnOpSub;
-    Button btnOpAdd;
-    Button btnOpEquals;
-    Button btnOpPeriod;
+    Button btnNumber9, btnNumber8, btnNumber7, btnNumber6, btnNumber5, btnNumber4, btnNumber3, btnNumber2, btnNumber1, btnNumber0;
+    Button btnOpDiv, btnOpMul, btnOpSub, btnOpAdd, btnOpEquals, btnOpPeriod;
 
     // TextView
-    TextView tv_equation;
-    TextView tv_result;
+    TextView tv_equation, tv_result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,82 +78,41 @@ public class CalculatorExercise extends AppCompatActivity {
             });
         }
 
-        for (Button op: buttonOperations){
-            op.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View view) {
-                    char ope = op.getText().charAt(0);
+        btnOpPeriod.setOnClickListener(v -> {
+            String point = btnOpPeriod.getText().toString();
+            if (number.indexOf(point) == -1){
+                /* ADDS a DECIMAL point IF the number does not contain any decimal point (.) */
+                number.append(point);
+                tv_equation.append(point);
+            } else if (number.charAt(number.length()-1) == '.'){
+                /* REMOVES the DECIMAL POINT if it was the last input */
+                number.setLength(number.length()-1);
+                tv_equation.setText(equation.toString());
+                tv_equation.append(number.toString());
+            }
+        });
 
-                    if (ope == '.'){
-                        if (number.indexOf(op.getText().toString()) == -1){
-                            /* ADDS a DECIMAL point IF the number does not contain any decimal point (.) */
-                            number.append(ope);
-                            tv_equation.append(op.getText().toString());
-                        } else if (number.charAt(number.length()-1) == '.'){
-                            /* REMOVES the DECIMAL POINT if it was the last input */
-                            number.setLength(number.length()-1);
-                            tv_equation.setText(equation.toString());
-                            tv_equation.append(number.toString());
-                        }
-                    } else if (!listEquation.isEmpty() || number.length() != 0){
-                        /* Operator will be added to the equation when
-                        /* 1: Equation is not empty (layk dili siya maoy first thing na imo ibutang sa calc)
-                        /* 2: There is an operand that is yet to be added to the equation */
-                        switch (ope){
-                            case '+':
-                            case '-':
-                            case '÷':
-                            case '×':
-                                if (number.length() == 0){
-                                    /* IF the last INPUT was an OPERATOR
-                                    /* REMOVE last inputted operator */
-                                    listEquation.remove(listEquation.size()-1);
-                                    equation.setCharAt(equation.length()-1, ope);
-                                } else {
-                                    /* IF the last INPUT was an OPERAND */
-                                    if (number.charAt(number.length()-1) == '.') {
-                                        /* IF the last INPUT was a decimal poibt, REMOVE the decimal point */
-                                        number.setLength(number.length()-1);
-                                    }
+        btnOpEquals.setOnClickListener(view -> {
+            /* IF the last input was a NUMBER */
+            if (number.length() != 0){
+                /* if LAST input was a DECIMAL point, remove it */
+                if (number.charAt(number.length()-1) == '.'){
+                    number.setLength(number.length()-1);
+                }
 
-                                    /* ADD the INPUTTED number into the EQUATION */
-                                    listEquation.add(number.toString());
+                /* ADD number into the EQUATION */
+                listEquation.add(number.toString());
+                equation.append(number.toString());
+            }
 
-                                    equation.append(number.toString());
-                                    equation.append(ope);
+            /* IF the last input was an OPERATOR
+            /* REMOVE the operator */
+            if (!Character.isDigit(equation.charAt(equation.length()-1))){
+                equation.setLength(equation.length()-1);
+                listEquation.remove(listEquation.size()-1);
+            }
 
-                                    /* CLEAR the temporary variable that holds the inputted NUMBER */
-                                    number.setLength(0);
-
-                                    /* GET sequential result */
-                                    tv_result.setText(calculateSequential());
-                                }
-
-                                /* ADD operator into the EQUATION */
-                                listEquation.add(String.valueOf(ope));
-                                tv_equation.setText(equation);
-                                break;
-                            case '=':
-                                /* IF the last input was a NUMBER */
-                                if (number.length() != 0){
-                                    /* if LAST input was a DECIMAL point, remove it */
-                                    if (number.charAt(number.length()-1) == '.'){
-                                        number.setLength(number.length()-1);
-                                    }
-
-                                    /* ADD number into the EQUATION */
-                                    listEquation.add(number.toString());
-                                    equation.append(number.toString());
-                                }
-
-                                /* IF the last input was an OPERATOR
-                                /* REMOVE the operator */
-                                if (!Character.isDigit(equation.charAt(equation.length()-1))){
-                                    equation.setLength(equation.length()-1);
-                                    listEquation.remove(listEquation.size()-1);
-                                }
-
-                                /* FOR CHECKING ONLY !! */
+            /* FOR CHECKING ONLY !! */
 //                                System.out.println("\nEQUATION: " + equation);
 //                                System.out.print("BEFORE MDAS: ");
 //                                for (String s: listEquation){
@@ -179,20 +120,57 @@ public class CalculatorExercise extends AppCompatActivity {
 //                                }
 //                                System.out.println("list size: " + listEquation.size());
 
-                                /* ADD the "=" into the TEXTVIEW showing the whole equation */
-                                String finalEquation = equation.toString() + "=";
+            /* ADD the "=" into the TEXTVIEW showing the whole equation */
+            String finalEquation = equation.toString() + "=";
 
-                                /* GET MDAS result */
-                                String result = calculateMDAS();
+            /* GET MDAS result */
+            String result = calculateMDAS();
 
-                                /* CLEAR calculator */
-                                clearCalculator();
+            /* CLEAR calculator */
+            clearCalculator();
 
-                                /* SHOW RESULT */
-                                tv_equation.setText(finalEquation);
-                                tv_result.setText(result);
-                                break;
+            /* SHOW RESULT */
+            tv_equation.setText(finalEquation);
+            tv_result.setText(result);
+        });
+
+        for (Button op: buttonOperations){
+            op.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
+                    char ope = op.getText().charAt(0);
+                    if (!listEquation.isEmpty() || number.length() != 0){
+                        /* Operator will be added to the equation when
+                        /* 1: Equation is not empty (layk dili siya maoy first thing na imo ibutang sa calc)
+                        /* 2: There is an operand that is yet to be added to the equation */
+                        if (number.length() == 0){
+                            /* IF the last INPUT was an OPERATOR
+                            /* REMOVE last inputted operator */
+                            listEquation.remove(listEquation.size()-1);
+                            equation.setCharAt(equation.length()-1, ope);
+                        } else {
+                            /* IF the last INPUT was an OPERAND */
+                            if (number.charAt(number.length()-1) == '.') {
+                                /* IF the last INPUT was a decimal poibt, REMOVE the decimal point */
+                                number.setLength(number.length()-1);
+                            }
+
+                            /* ADD the INPUTTED number into the EQUATION */
+                            listEquation.add(number.toString());
+
+                            equation.append(number.toString());
+                            equation.append(ope);
+
+                            /* CLEAR the temporary variable that holds the inputted NUMBER */
+                            number.setLength(0);
+
+                            /* SHOW SEQUENTIAL RESULT */
+                            tv_result.setText(calculateSequential());
                         }
+
+                        /* ADD operator into the EQUATION */
+                        listEquation.add(String.valueOf(ope));
+                        tv_equation.setText(equation);
                     }
                 }
             });
@@ -239,10 +217,8 @@ public class CalculatorExercise extends AppCompatActivity {
                         if (opIndexFrLast == 2){
                             SequentialResult = "ERROR";
                         }
-
                         return "ERROR";
                     }
-
                     break;
             }
 
@@ -300,7 +276,6 @@ public class CalculatorExercise extends AppCompatActivity {
                         } catch (ArithmeticException a){
                             return "ERROR Cannot divide by 0";
                         }
-
                         break;
                 }
             }
@@ -317,7 +292,6 @@ public class CalculatorExercise extends AppCompatActivity {
         Stack<String> ops = new Stack<>();
 
         for (String s: listEquation){
-
             /* Operands will be added directly to the pf (postfix expression) */
             if (s.contains(".") || Character.isDigit(s.charAt(0))){
                 pf.add(s);
@@ -337,13 +311,10 @@ public class CalculatorExercise extends AppCompatActivity {
                     while (!ops.empty() && getPrecedence(s.charAt(0)) < getPrecedence(ops.peek().charAt(0))){
                         pf.add(ops.pop());
                     }
-
                     ops.push(s);
                 }
             }
         }
-
-
         /* EMPTY the ops stack -> ADD operators into the POSTFIX expression */
         while (!ops.empty()){
             pf.add(ops.pop());
@@ -416,8 +387,6 @@ public class CalculatorExercise extends AppCompatActivity {
         buttonOperations.add(btnOpMul);
         buttonOperations.add(btnOpDiv);
         buttonOperations.add(btnOpSub);
-        buttonOperations.add(btnOpEquals);
-        buttonOperations.add(btnOpPeriod);
     }
 }
 
