@@ -189,40 +189,38 @@ public class CalculatorExercise extends AppCompatActivity {
         }
 
         SequentialResult = tempSequential;
-        if (SequentialResult.equals("ERROR")){
-            return SequentialResult;
-        }
+        if (!SequentialResult.equals("ERROR")){
+            BigDecimal left = new BigDecimal(SequentialResult);
+            BigDecimal right = new BigDecimal(number.toString());
+            char op = listEquation.get(listEquation.size()-1).charAt(0);
 
-        BigDecimal left = new BigDecimal(SequentialResult);
-        BigDecimal right = new BigDecimal(number.toString());
-        char op = listEquation.get(listEquation.size()-1).charAt(0);
+            BigDecimal tempRes = new BigDecimal(0);
 
-        BigDecimal tempRes = new BigDecimal(0);
-
-        switch (op){
-            case '+':
-                tempRes = left.add(right);
-                break;
-            case '-':
-                tempRes = left.subtract(right);
-                break;
-            case '×':
-                tempRes = left.multiply(right);
-                break;
-            case '÷':
-                try {
-                    tempRes = left.divide(right);
-                } catch (ArithmeticException a){
-                    if (Objects.requireNonNull(a.getMessage()).contains("Division by zero")){
-                        SequentialResult = "ERROR";
-                        return "ERROR";
+            switch (op){
+                case '+':
+                    tempRes = left.add(right);
+                    break;
+                case '-':
+                    tempRes = left.subtract(right);
+                    break;
+                case '×':
+                    tempRes = left.multiply(right);
+                    break;
+                case '÷':
+                    try {
+                        tempRes = left.divide(right);
+                    } catch (ArithmeticException a){
+                        if (Objects.requireNonNull(a.getMessage()).contains("Division by zero")){
+                            SequentialResult = "ERROR";
+                            return "ERROR";
+                        }
+                        tempRes = left.divide(right, 11, RoundingMode.HALF_EVEN);
                     }
-                    tempRes = left.divide(right, 11, RoundingMode.HALF_EVEN);
-                }
-                break;
-        }
+                    break;
+            }
 
-        SequentialResult = tempRes.toString();
+            SequentialResult = tempRes.toString();
+        }
 
         return SequentialResult;
     }
