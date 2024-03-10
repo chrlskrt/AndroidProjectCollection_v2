@@ -8,14 +8,16 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Stack;
 
 public class CalculatorExercise extends AppCompatActivity {
     StringBuilder number, equation;
     List<String> listEquation;
-    String SequentialResult;
+    String SequentialResult, tempSequential;
 
     // Buttons
     List<Button> buttonNumbers, buttonOperations;
@@ -71,9 +73,8 @@ public class CalculatorExercise extends AppCompatActivity {
                     tv_equation.setText(equation.toString());
                     tv_equation.append(number.toString());
 
-                    if (!listEquation.isEmpty()){
-                        tv_result.setText(calculateSequential());
-                    }
+
+                    tv_result.setText(calculateSequential());
                 }
             });
         }
@@ -112,13 +113,13 @@ public class CalculatorExercise extends AppCompatActivity {
                 listEquation.remove(listEquation.size()-1);
             }
 
-            /* FOR CHECKING ONLY !! */
-//                                System.out.println("\nEQUATION: " + equation);
-//                                System.out.print("BEFORE MDAS: ");
-//                                for (String s: listEquation){
-//                                    System.out.print(s + " ");
-//                                }
-//                                System.out.println("list size: " + listEquation.size());
+//            /* FOR CHECKING ONLY !! */
+//            System.out.println("\nEQUATION: " + equation);
+//            System.out.print("BEFORE MDAS: ");
+//            for (String s: listEquation){
+//                System.out.print(s + " ");
+//            }
+//            System.out.println("list size: " + listEquation.size());
 
             /* ADD the "=" into the TEXTVIEW showing the whole equation */
             String finalEquation = equation.toString() + "=";
@@ -165,7 +166,7 @@ public class CalculatorExercise extends AppCompatActivity {
                             number.setLength(0);
 
                             /* SHOW SEQUENTIAL RESULT */
-                            tv_result.setText(calculateSequential());
+                            tv_result.setText(SequentialResult);
                         }
 
                         /* ADD operator into the EQUATION */
@@ -178,58 +179,52 @@ public class CalculatorExercise extends AppCompatActivity {
     }
 
     private String calculateSequential(){
-        if (listEquation.size() == 1 && number.length() == 0){
-            SequentialResult = listEquation.get(0);
+        if (listEquation.isEmpty()){
+            SequentialResult = number.toString();
+            return "";
+        }
+
+        if (number.length() == 1){
+            tempSequential = SequentialResult;
+        }
+
+        SequentialResult = tempSequential;
+        if (SequentialResult.equals("ERROR")){
             return SequentialResult;
         }
 
-        int opIndexFrLast;
-        BigDecimal right;
-        char op;
-        if (number.length() == 0){
-            right = new BigDecimal(listEquation.get(listEquation.size()-1));
-            opIndexFrLast = 2;
-        } else {
-            right = new BigDecimal(number.toString());
-            opIndexFrLast = 1;
-        }
+        BigDecimal left = new BigDecimal(SequentialResult);
+        BigDecimal right = new BigDecimal(number.toString());
+        char op = listEquation.get(listEquation.size()-1).charAt(0);
 
-        op = listEquation.get(listEquation.size()-opIndexFrLast).charAt(0);
+        BigDecimal tempRes = new BigDecimal(0);
 
-        if (!SequentialResult.equals("ERROR")){
-            BigDecimal left = new BigDecimal(SequentialResult);
-
-            BigDecimal tempRes = new BigDecimal(0);
-            switch (op){
-                case '+':
-                    tempRes = left.add(right);
-                    break;
-                case '-':
-                    tempRes = left.subtract(right);
-                    break;
-                case '×':
-                    tempRes = left.multiply(right);
-                    break;
-                case '÷':
-                    try {
-                        tempRes = left.divide(right);
-                    } catch (ArithmeticException a){
-                        if (opIndexFrLast == 2){
-                            SequentialResult = "ERROR";
-                        }
+        switch (op){
+            case '+':
+                tempRes = left.add(right);
+                break;
+            case '-':
+                tempRes = left.subtract(right);
+                break;
+            case '×':
+                tempRes = left.multiply(right);
+                break;
+            case '÷':
+                try {
+                    tempRes = left.divide(right);
+                } catch (ArithmeticException a){
+                    if (Objects.requireNonNull(a.getMessage()).contains("Division by zero")){
+                        SequentialResult = "ERROR";
                         return "ERROR";
                     }
-                    break;
-            }
-
-            if (opIndexFrLast == 2){
-                SequentialResult = tempRes.toString();
-            }
-
-            return tempRes.toString();
+                    tempRes = left.divide(right, 11, RoundingMode.HALF_EVEN);
+                }
+                break;
         }
 
-        return "ERROR";
+        SequentialResult = tempRes.toString();
+
+        return SequentialResult;
     }
     private String calculateMDAS(){
         /* FOR CHECKING ONLY */
@@ -242,10 +237,10 @@ public class CalculatorExercise extends AppCompatActivity {
         getPostfixExpression();
 
         /* FOR CHECKING ONLY */
-        System.out.print("\nPOSTFIX: ");
-        for (String s: listEquation){
-            System.out.print(s + " ");
-        }
+//        System.out.print("\nPOSTFIX: ");
+//        for (String s: listEquation){
+//            System.out.print(s + " ");
+//        }
 
         /* STACK for calculating POSTFIX */
         Stack<String> calculations = new Stack<>();
@@ -259,7 +254,7 @@ public class CalculatorExercise extends AppCompatActivity {
             } else {
                 BigDecimal right = new BigDecimal(calculations.pop());
                 BigDecimal left = new BigDecimal(calculations.pop());
-
+                System.out.println(left + " " + s + " " + right + " = ");
                 switch (s.charAt(0)){
                     case '+':
                         calculations.push(left.add(right).toString());
@@ -274,7 +269,11 @@ public class CalculatorExercise extends AppCompatActivity {
                         try {
                             calculations.push(left.divide(right).toString());
                         } catch (ArithmeticException a){
-                            return "ERROR Cannot divide by 0";
+                            String error = a.getMessage();
+                            if (Objects.requireNonNull(error).contains("Division by zero")){
+                                return "ERROR Cannot divide by 0";
+                            }
+                            calculations.push(left.divide(right, 11, RoundingMode.HALF_EVEN).toString());
                         }
                         break;
                 }
@@ -308,7 +307,7 @@ public class CalculatorExercise extends AppCompatActivity {
                     /* or until the stack is empty
 
                     /* STEP 2.2: If it is greater in precedence, add it directly to the ops stack */
-                    while (!ops.empty() && getPrecedence(s.charAt(0)) < getPrecedence(ops.peek().charAt(0))){
+                    while (!ops.empty() && getPrecedence(s.charAt(0)) <= getPrecedence(ops.peek().charAt(0))){
                         pf.add(ops.pop());
                     }
                     ops.push(s);
@@ -331,9 +330,9 @@ public class CalculatorExercise extends AppCompatActivity {
             return 3;
         } else if (op == '÷'){
             return 2;
-        } else {
-            return 1;
         }
+
+        return 1;
     }
 
     // resetting calculator
