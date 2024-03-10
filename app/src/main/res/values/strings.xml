@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">AndroidProjectCollection</string>
+
+    <!--Layout Exercise-->
+    <string name="btnLayoutExercise_text">Layout Exercise</string>
+    <string name="btnButton1_text">Button</string>
+    <string name="btn_description">This is a button.</string>
+    <string name="imageView_description">This is an image.</string>
+    <string name="scrollView_description">This is a scroll view.</string>
+    <string name="username1">Your Story</string>
+    <string name="username2">abcdef</string>
+    <string name="username3">lmnop</string>
+    <string name="username4">uvwxyz</string>
+    <string name="username5">ijwtrip</string>
+    <string name="username6">eleelele</string>
+    <string name="username7">hahaha</string>
+    <string name="btn_like_description">Like button</string>
+    <string name="btn_share_description">Share button</string>
+    <string name="btn_bookmark_description">Bookmark button</string>
+    <string name="comment_description">Add a comment ...</string>
+
+    <!--Button Exercise-->
+    <string name="btnButtonExercise_text">Button Exercise</string>
+    <string name="btnGoToNewActivity_text">Go to new Activity</string>
+    <string name="btnClose_text">Close</string>
+    <string name="btnToast_text">Toast</string>
+    <string name="btnChangeBG_text">Change BG</string>
+    <string name="btnChangeButtonBG_text">Change Button BG</string>
+    <string name="btnDisappear_text">Disappear</string>
+    <string name="btnReturn_text">Return</string>
+
+    <!--Calculator Exercise-->
+    <string name="btnCalculatorExercise">Calculator Exercise</string>
+    <string name="btnNumber0">0</string>
+    <string name="btnNumber1">1</string>
+    <string name="btnNumber2">2</string>
+    <string name="btnNumber3">3</string>
+    <string name="btnNumber4">4</string>
+    <string name="btnNumber5">5</string>
+    <string name="btnNumber6">6</string>
+    <string name="btnNumber7">7</string>
+    <string name="btnNumber8">8</string>
+    <string name="btnNumber9">9</string>
+    <string name="btnOpAdd">+</string>
+    <string name="btnOpSub">-</string>
+    <string name="btnOpDiv">÷</string>
+    <string name="btnOpMul">×</string>
+    <string name="btnOpEquals">=</string>
+    <string name="btnOpPeriod">.</string>
+    <string name="btnClear">Clear</string>
+</resources>
