@@ -47,5 +47,13 @@
     <string name="btnOpMul">×</string>
     <string name="btnOpEquals">=</string>
     <string name="btnOpPeriod">.</string>
-    <string name="btnClear">Clear</string>
+    <string name="btnClear">Clear All</string>
+
+    <!-- Midterm Exam | Tic Tac Toe -->
+    <string name="btnPlayTicTacToe">TIC TAC TOE</string>
+    <string name="btnRestart">Restart</string>
+
+    <!--Match 3-->
+    <string name="btnMatch3">Match 3</string>
+    <string name="tv_MScore">Score: </string>
 </resources>

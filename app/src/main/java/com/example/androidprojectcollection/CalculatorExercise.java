@@ -83,6 +83,11 @@ public class CalculatorExercise extends AppCompatActivity {
             String point = btnOpPeriod.getText().toString();
             if (number.indexOf(point) == -1){
                 /* ADDS a DECIMAL point IF the number does not contain any decimal point (.) */
+                if (number.length() == 0){
+                    number.append(0);
+                    calculateSequential();
+                    tv_equation.append("0");
+                }
                 number.append(point);
                 tv_equation.append(point);
             } else if (number.charAt(number.length()-1) == '.'){
@@ -95,11 +100,12 @@ public class CalculatorExercise extends AppCompatActivity {
 
         btnOpEquals.setOnClickListener(view -> {
             /* IF the last input was a NUMBER */
+
             if (number.length() != 0){
                 /* if LAST input was a DECIMAL point, remove it */
-                if (number.charAt(number.length()-1) == '.'){
-                    number.setLength(number.length()-1);
-                }
+//                if (number.charAt(number.length()-1) == '.'){
+//                    number.setLength(number.length()-1);
+//                }
 
                 /* ADD number into the EQUATION */
                 listEquation.add(number.toString());
@@ -151,10 +157,10 @@ public class CalculatorExercise extends AppCompatActivity {
                             equation.setCharAt(equation.length()-1, ope);
                         } else {
                             /* IF the last INPUT was an OPERAND */
-                            if (number.charAt(number.length()-1) == '.') {
-                                /* IF the last INPUT was a decimal poibt, REMOVE the decimal point */
-                                number.setLength(number.length()-1);
-                            }
+//                            if (number.charAt(number.length()-1) == '.') {
+//                                /* IF the last INPUT was a decimal poibt, REMOVE the decimal point */
+//                                number.setLength(number.length()-1);
+//                            }
 
                             /* ADD the INPUTTED number into the EQUATION */
                             listEquation.add(number.toString());
@@ -248,9 +254,13 @@ public class CalculatorExercise extends AppCompatActivity {
             /* IF current STRING is an OPERAND, PUSH into the STACK
             /* ELSE, POP 2 times to get the OPERANDS in the STACK & PERFORM operation */
             if (s.contains(".") || Character.isDigit(s.charAt(0))) {
+                System.out.println("PUSHING: " + s);
                 calculations.push(s);
             } else {
                 BigDecimal right = new BigDecimal(calculations.pop());
+                System.out.println("POPPING");
+                System.out.println(right);
+                System.out.println(calculations.peek());
                 BigDecimal left = new BigDecimal(calculations.pop());
                 System.out.println(left + " " + s + " " + right + " = ");
                 switch (s.charAt(0)){
@@ -292,6 +302,7 @@ public class CalculatorExercise extends AppCompatActivity {
             /* Operands will be added directly to the pf (postfix expression) */
             if (s.contains(".") || Character.isDigit(s.charAt(0))){
                 pf.add(s);
+                System.out.println("PUSHING to postfix: " + s);
             } else {
                 /* If the ops stack for operators is empty, current operator can be added directly */
                 if (ops.empty()){
