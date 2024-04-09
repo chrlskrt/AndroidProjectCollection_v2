@@ -65,7 +65,7 @@ public class Match3 extends AppCompatActivity {
 
     private void colorSwap() {
         System.out.println("rows clicked: " + btnClickedRow);
-        System.out.println("rows clicked: " + btnClickedCol);
+        System.out.println("cols clicked: " + btnClickedCol);
         int row1 = btnClickedRow.get(0), row2 = btnClickedRow.get(1);
         int col1 = btnClickedCol.get(0), col2 = btnClickedCol.get(1);
 
@@ -135,6 +135,7 @@ public class Match3 extends AppCompatActivity {
         }
     }
     private void matchHorizontal(int row, int col) {
+        printBoard();
         Random r = new Random();
 
         tileColors[row][col] = r.nextInt(4);
@@ -144,6 +145,7 @@ public class Match3 extends AppCompatActivity {
         updateTileColors();
     }
     private void matchVertical(int row, int col) {
+        printBoard();
         Random r = new Random();
 
         tileColors[row][col] = r.nextInt(4);
@@ -159,6 +161,18 @@ public class Match3 extends AppCompatActivity {
             for (int j = 0; j < 5; j++){
                 tileColors[i][j] = r.nextInt(4);
             }
+        }
+    }
+
+    void printBoard(){
+        System.out.println("BOARD NOW:");
+        for (int i = 0; i < 5; i++){
+            System.out.print("\t");
+            for (int j = 0; j < 5; j++){
+                System.out.print(tileColors[i][j] + " ");
+            }
+
+            System.out.println("");
         }
     }
 

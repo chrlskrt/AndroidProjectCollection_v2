@@ -18,9 +18,9 @@
         <TextView
             android:id="@+id/tv_match3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_gravity="center"
-            android:layout_weight=".75"
+            android:layout_weight=".5"
             android:gravity="center"
             android:text="@string/btnMatch3"
             android:textStyle="bold"
@@ -29,24 +29,24 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight=".75"
-            android:orientation="horizontal">
+            android:layout_weight=".5"
+            android:orientation="horizontal"
+            android:padding="5dp">
 
             <TextView
                 android:id="@+id/tv_MTextScore"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight=".4"
-                android:gravity="center|right"
+                android:layout_weight="1"
+                android:gravity="center"
                 android:text="@string/tv_MScore"
-                app:autoSizeMaxTextSize="54dp"
                 app:autoSizeTextType="uniform" />
 
             <TextView
                 android:id="@+id/tv_MScore"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight=".5"
+                android:layout_weight="1"
                 android:gravity="center"
                 app:autoSizeTextType="uniform" />
 
@@ -54,275 +54,297 @@
 
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2">
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:padding="5dp">
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_weight="1">
 
                 <Button
                     android:id="@+id/btnM00"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/btn_description" />
+                    android:contentDescription="@string/btn_description"
+                    app:cornerRadius="10dp" />
 
                 <Button
                     android:id="@+id/btnM01"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/btn_description" />
+                    android:contentDescription="@string/btn_description"
+                    app:cornerRadius="10dp" />
 
                 <Button
                     android:id="@+id/btnM02"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/btn_description" />
+                    android:contentDescription="@string/btn_description"
+                    app:cornerRadius="10dp" />
 
                 <Button
                     android:id="@+id/btnM03"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/btn_description" />
+                    android:contentDescription="@string/btn_description"
+                    app:cornerRadius="10dp" />
 
                 <Button
                     android:id="@+id/btnM04"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/btn_description" />
+                    android:contentDescription="@string/btn_description"
+                    app:cornerRadius="10dp" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_weight="1">
 
                 <Button
                     android:id="@+id/btnM10"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/btn_description" />
+                    android:contentDescription="@string/btn_description"
+                    app:cornerRadius="10dp" />
 
                 <Button
                     android:id="@+id/btnM11"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/btn_description" />
+                    android:contentDescription="@string/btn_description"
+                    app:cornerRadius="10dp" />
 
                 <Button
                     android:id="@+id/btnM12"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/btn_description" />
+                    android:contentDescription="@string/btn_description"
+                    app:cornerRadius="10dp" />
 
                 <Button
                     android:id="@+id/btnM13"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/btn_description" />
+                    android:contentDescription="@string/btn_description"
+                    app:cornerRadius="10dp" />
 
                 <Button
                     android:id="@+id/btnM14"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/btn_description" />
+                    android:contentDescription="@string/btn_description"
+                    app:cornerRadius="10dp" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_weight="1">
 
                 <Button
                     android:id="@+id/btnM20"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/btn_description" />
+                    android:contentDescription="@string/btn_description"
+                    app:cornerRadius="10dp" />
 
                 <Button
                     android:id="@+id/btnM21"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/btn_description" />
+                    android:contentDescription="@string/btn_description"
+                    app:cornerRadius="10dp" />
 
                 <Button
                     android:id="@+id/btnM22"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/btn_description" />
+                    android:contentDescription="@string/btn_description"
+                    app:cornerRadius="10dp" />
 
                 <Button
                     android:id="@+id/btnM23"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/btn_description" />
+                    android:contentDescription="@string/btn_description"
+                    app:cornerRadius="10dp" />
 
                 <Button
                     android:id="@+id/btnM24"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/btn_description" />
+                    android:contentDescription="@string/btn_description"
+                    app:cornerRadius="10dp" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_weight="1">
 
                 <Button
                     android:id="@+id/btnM30"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/btn_description" />
+                    android:contentDescription="@string/btn_description"
+                    app:cornerRadius="10dp" />
 
                 <Button
                     android:id="@+id/btnM31"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/btn_description" />
+                    android:contentDescription="@string/btn_description"
+                    app:cornerRadius="10dp" />
 
                 <Button
                     android:id="@+id/btnM32"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/btn_description" />
+                    android:contentDescription="@string/btn_description"
+                    app:cornerRadius="10dp" />
 
                 <Button
                     android:id="@+id/btnM33"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/btn_description" />
+                    android:contentDescription="@string/btn_description"
+                    app:cornerRadius="10dp" />
 
                 <Button
                     android:id="@+id/btnM34"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/btn_description" />
+                    android:contentDescription="@string/btn_description"
+                    app:cornerRadius="10dp" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_weight="1">
 
                 <Button
                     android:id="@+id/btnM40"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/btn_description" />
+                    android:contentDescription="@string/btn_description"
+                    app:cornerRadius="10dp" />
 
                 <Button
                     android:id="@+id/btnM41"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/btn_description" />
+                    android:contentDescription="@string/btn_description"
+                    app:cornerRadius="10dp" />
 
                 <Button
                     android:id="@+id/btnM42"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/btn_description" />
+                    android:contentDescription="@string/btn_description"
+                    app:cornerRadius="10dp" />
 
                 <Button
                     android:id="@+id/btnM43"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/btn_description" />
+                    android:contentDescription="@string/btn_description"
+                    app:cornerRadius="10dp" />
 
                 <Button
                     android:id="@+id/btnM44"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/btn_description" />
+                    android:contentDescription="@string/btn_description"
+                    app:cornerRadius="10dp" />
             </TableRow>
         </TableLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/btnMRestart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight=".1"
+            android:layout_weight=".05"
             android:gravity="center"
             android:text="@string/btnRestart" />
 

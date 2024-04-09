@@ -4,7 +4,7 @@
     <!--Layout Exercise-->
     <string name="btnLayoutExercise_text">Layout Exercise</string>
     <string name="btnButton1_text">Button</string>
-    <string name="btn_description">This is a button.</string>
+    <string name="btn_description">This is a b u t t o n.</string>
     <string name="imageView_description">This is an image.</string>
     <string name="scrollView_description">This is a scroll view.</string>
     <string name="username1">Your Story</string>
@@ -14,9 +14,9 @@
     <string name="username5">ijwtrip</string>
     <string name="username6">eleelele</string>
     <string name="username7">hahaha</string>
-    <string name="btn_like_description">Like button</string>
-    <string name="btn_share_description">Share button</string>
-    <string name="btn_bookmark_description">Bookmark button</string>
+    <string name="btn_like_description">Like b u t t o n</string>
+    <string name="btn_share_description">Share b u t t o n</string>
+    <string name="btn_bookmark_description">Bookmark b u t t o n</string>
     <string name="comment_description">Add a comment ...</string>
 
     <!--Button Exercise-->
