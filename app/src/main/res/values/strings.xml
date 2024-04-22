@@ -56,4 +56,39 @@
     <!--Match 3-->
     <string name="btnMatch3">Match 3</string>
     <string name="tv_MScore">Score: </string>
+
+    <!--Passing Intents-->
+    <string name="btnPassingIntents">Passing Intents</string>
+    <string name="tvStudentRegTitle">Student Registration Form</string>
+    <string name="tvStudentRegName">Complete Name</string>
+    <string name="etxtFName">First Name</string>
+    <string name="etxtLName">Last Name</string>
+    <string name="tvStudentRegGender">Gender</string>
+    <string name="radMale">Male</string>
+    <string name="radFemale">Female</string>
+    <string name="radOthers">Others</string>
+    <string name="tvStudentRegBDate">Birth Date</string>
+    <string name="tvStudentRegEmailAdd">Email Address</string>
+    <string name="tvStudentRegPN">Phone Number</string>
+    <string name="btnPIClear">Clear</string>
+    <string name="btnPISubmit">Submit</string>
+    <string name="spnr_description">This is a s p i n n e r</string>
+    <string name="etxtPN_description">This is an input form for P H O N E numbers.</string>
+    <string name="tvStudentRegCivilStatus">Civil Status</string>
+    <string name="radSingle">Single</string>
+    <string name="radMarried">Married</string>
+    <string name="radDivorced">Divorced</string>
+    <string name="radWidowed">Widowed</string>
+    <string name="tvStudentRegHomeAdd">Home Address</string>
+    <string name="tvStudentRegBirthPlace">Place of Birth</string>
+    <string name="tvStudentRegProgram">Program</string>
+    <string name="tvStudentRegYearLevel">Year Level</string>
+
+    <string name="tvStudentProfile">Student Profile</string>
+    <string name="selectProgram">Select Program</string>
+    <!--Fragments-->
+    <string name="btnFragments">Fragments</string>
+
+    <!--Menus-->
+    <string name="btnMenus">Menus</string>
 </resources>

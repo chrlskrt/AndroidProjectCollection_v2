@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     Button btn3; // Calculator Exercise
     Button btnPlayTicTacToe; // Midterm Exam TIC TAC TOE
     Button btnMatch3; // Match 3
+    Button btnPassingIntents;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +75,15 @@ public class MainActivity extends AppCompatActivity {
             Intent intent1 = new Intent(
                     MainActivity.this,
                     Match3.class );
+
+            startActivity(intent1);
+        });
+
+        btnPassingIntents = findViewById(R.id.btnPassingIntents);
+        btnPassingIntents.setOnClickListener(e -> {
+            Intent intent1 = new Intent(
+                    MainActivity.this,
+                    PassingIntentsExercise.class );
 
             startActivity(intent1);
         });

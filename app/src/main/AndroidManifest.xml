@@ -12,10 +12,18 @@
         android:theme="@style/Theme.AndroidProjectCollection"
         tools:targetApi="31">
         <activity
-            android:name=".Match3"
-            android:screenOrientation="sensor"
-            android:configChanges="orientation|layoutDirection|screenLayout|screenSize"
+            android:name=".PassingIntentsExercise2"
+            android:configChanges="orientation|screenSize"
             android:exported="false" />
+        <activity
+            android:name=".PassingIntentsExercise"
+            android:configChanges="orientation|screenSize"
+            android:exported="false" />
+        <activity
+            android:name=".Match3"
+            android:configChanges="orientation|layoutDirection|screenLayout|screenSize"
+            android:exported="false"
+            android:screenOrientation="sensor" />
         <activity
             android:name=".TicTacToe"
             android:configChanges="orientation|screenSize"

@@ -7,161 +7,130 @@
 
     tools:context=".MainActivity">
 
-    <TableLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="101dp"
-            android:layout_weight="1">
-
-            <Button
-                android:id="@+id/btnButtonExercise"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:autoSizeMaxTextSize="28dp"
-                android:autoSizeTextType="uniform"
-                android:text="@string/btnButtonExercise_text"
-                app:cornerRadius="30dp" />
-
-            <Button
-                android:id="@+id/btnact6"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:autoSizeMaxTextSize="28dp"
-                android:autoSizeTextType="uniform"
-                android:contentDescription="@string/btn_description"
-                android:text="Button"
-                app:cornerRadius="30dp" />
-
-        </TableRow>
-
-        <TableRow
+        <Button
+            android:id="@+id/btnButtonExercise"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:autoSizeMaxTextSize="28dp"
+            android:autoSizeTextType="uniform"
+            android:text="@string/btnButtonExercise_text"
+            app:cornerRadius="30dp" />
 
-            <Button
-                android:id="@+id/btnCalculatorExercise"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:autoSizeMaxTextSize="28dp"
-                android:autoSizeTextType="uniform"
-                android:contentDescription="@string/btn_description"
-                android:text="@string/btnCalculatorExercise"
-                app:cornerRadius="30dp" />
-
-            <Button
-                android:id="@+id/btnact7"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:autoSizeMaxTextSize="28dp"
-                android:autoSizeTextType="uniform"
-                android:contentDescription="@string/btn_description"
-                android:text="Button"
-                app:cornerRadius="30dp" />
-        </TableRow>
-
-        <TableRow
+        <Button
+            android:id="@+id/btnCalculatorExercise"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:autoSizeMaxTextSize="28dp"
+            android:autoSizeTextType="uniform"
+            android:contentDescription="@string/btn_description"
+            android:text="@string/btnCalculatorExercise"
+            app:cornerRadius="30dp" />
 
-            <Button
-                android:id="@+id/btnLayoutExercise"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:autoSizeMaxTextSize="28dp"
-                android:autoSizeTextType="uniform"
-                android:text="@string/btnLayoutExercise_text"
-                app:cornerRadius="30dp" />
-
-            <Button
-                android:id="@+id/btnact8"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:autoSizeMaxTextSize="30dp"
-                android:autoSizeTextType="uniform"
-                android:contentDescription="@string/btn_description"
-                android:text="Button"
-                app:cornerRadius="30dp" />
-        </TableRow>
-
-        <TableRow
+        <Button
+            android:id="@+id/btnLayoutExercise"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:autoSizeMaxTextSize="28dp"
+            android:autoSizeTextType="uniform"
+            android:text="@string/btnLayoutExercise_text"
+            app:cornerRadius="30dp" />
 
-            <Button
-                android:id="@+id/btnPlayTicTacToe"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:autoSizeMaxTextSize="28dp"
-                android:autoSizeTextType="uniform"
-                android:text="@string/btnPlayTicTacToe"
-                app:cornerRadius="30dp" />
-
-            <Button
-                android:id="@+id/btnact9"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:autoSizeMaxTextSize="28dp"
-                android:autoSizeTextType="uniform"
-                android:contentDescription="@string/btn_description"
-                android:text="Button"
-                app:cornerRadius="30dp" />
-        </TableRow>
-
-        <TableRow
+        <Button
+            android:id="@+id/btnPlayTicTacToe"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:autoSizeMaxTextSize="28dp"
+            android:autoSizeTextType="uniform"
+            android:text="@string/btnPlayTicTacToe"
+            app:cornerRadius="30dp" />
 
-            <Button
-                android:id="@+id/btnMatch3"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:autoSizeMaxTextSize="28dp"
-                android:autoSizeTextType="uniform"
-                android:text="@string/btnMatch3"
-                app:cornerRadius="30dp" />
+        <Button
+            android:id="@+id/btnMatch3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:autoSizeMaxTextSize="28dp"
+            android:autoSizeTextType="uniform"
+            android:text="@string/btnMatch3"
+            app:cornerRadius="30dp" />
 
-            <Button
-                android:id="@+id/btnact10"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:autoSizeMaxTextSize="28dp"
-                android:autoSizeTextType="uniform"
-                android:contentDescription="@string/btn_description"
-                android:text="Button"
-                app:cornerRadius="30dp" />
-        </TableRow>
-    </TableLayout>
+        <Button
+            android:id="@+id/btnPassingIntents"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:autoSizeMaxTextSize="28dp"
+            android:autoSizeTextType="uniform"
+            android:contentDescription="@string/btn_description"
+            android:text="@string/btnPassingIntents"
+            app:cornerRadius="30dp" />
+
+        <Button
+            android:id="@+id/btnFragments"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:autoSizeMaxTextSize="28dp"
+            android:autoSizeTextType="uniform"
+            android:contentDescription="@string/btn_description"
+            android:text="@string/btnFragments"
+            app:cornerRadius="30dp" />
+
+        <Button
+            android:id="@+id/btnMenus"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:autoSizeMaxTextSize="30dp"
+            android:autoSizeTextType="uniform"
+            android:contentDescription="@string/btn_description"
+            android:text="@string/btnMenus"
+            app:cornerRadius="30dp" />
+
+        <Button
+            android:id="@+id/btnact9"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:autoSizeMaxTextSize="28dp"
+            android:autoSizeTextType="uniform"
+            android:contentDescription="@string/btn_description"
+            android:text="Button"
+            app:cornerRadius="30dp" />
+
+        <Button
+            android:id="@+id/btnact10"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:autoSizeMaxTextSize="28dp"
+            android:autoSizeTextType="uniform"
+            android:contentDescription="@string/btn_description"
+            android:text="Button"
+            app:cornerRadius="30dp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
