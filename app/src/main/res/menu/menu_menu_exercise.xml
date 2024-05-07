@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mItemChange"
+        android:title="@string/mItemChange">
+        <menu>
+            <item
+                android:id="@+id/mItemCBtnColor"
+                android:title="@string/mItemCBtnColor" />
+            <item
+                android:id="@+id/mItemCBtnSize"
+                android:title="@string/mItemCBtnSize" />
+            <item
+                android:id="@+id/mItemCBtnText"
+                android:title="@string/mItemCBtnText" />
+            <item
+                android:id="@+id/mItemCBtnTextColor"
+                android:title="@string/mItemCBtnTextColor" />
+            <item
+                android:id="@+id/mItemCBtnRotation"
+                android:title="@string/mItemCBtnRotation" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/mItemReset"
+        android:title="@string/mItemReset" />
+    <item
+        android:id="@+id/mItemExit"
+        android:title="@string/mItemExit" />
+</menu>

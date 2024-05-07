@@ -83,12 +83,21 @@
     <string name="tvStudentRegBirthPlace">Place of Birth</string>
     <string name="tvStudentRegProgram">Program</string>
     <string name="tvStudentRegYearLevel">Year Level</string>
-
+    <string name="selectProgram"> </string>
     <string name="tvStudentProfile">Student Profile</string>
-    <string name="selectProgram">Select Program</string>
     <!--Fragments-->
     <string name="btnFragments">Fragments</string>
 
     <!--Menus-->
-    <string name="btnMenus">Menus</string>
+    <string name="btnMenuExercise">Menu</string>
+    <string name="mItemChange">Change</string>
+    <string name="mItemReset">Reset</string>
+    <string name="mItemExit">Exit</string>
+    <string name="mItem">Item</string>
+    <string name="mItemCBtnColor">Button Color</string>
+    <string name="mItemCBtnText">Button Text</string>
+    <string name="mItemCBtnTextColor">Button Text Color</string>
+    <string name="mItemCBtnSize">Button Size</string>
+    <string name="mItemCBtnVisibility">Button Visibility</string>
+    <string name="mItemCBtnRotation">Button Rotation</string>
 </resources>
